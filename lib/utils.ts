@@ -8,10 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 export function setUpClient(): Client {
   let client: Client;
-  const ACCOUNT_ID = AccountId.fromString("0.0.6492202");
-  const KEY = PrivateKey.fromStringECDSA(
-    "0x33d664a003623ffff9e7fda83369301b86653de4ead1ba99002d4bb55e34efe3"
-  );
+  const ACCOUNT_ID = AccountId.fromString("");
+  const KEY = PrivateKey.fromStringECDSA("");
 
   client = Client.forTestnet();
 
