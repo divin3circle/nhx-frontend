@@ -36,6 +36,8 @@ function AddWalletModal({ closeModal }: AddWalletModalProps) {
       return;
     }
 
+    console.log({ network, walletAddress });
+
     addWalletMutation(
       { network, walletAddress },
       {

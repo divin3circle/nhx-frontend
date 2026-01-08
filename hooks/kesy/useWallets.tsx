@@ -6,8 +6,8 @@ import axios from "axios";
 import { AuthResponse } from "@/contexts/KESYContext";
 
 interface Wallet {
-  network: string;
   walletAddress: string;
+  network: string;
 }
 
 export interface WalletResponse {
@@ -61,9 +61,10 @@ async function addWallet(wallet: Wallet): Promise<WalletResponse> {
       toast.error("User not authenticated");
       throw new Error("User not authenticated");
     }
+
     const response = await axios.post(
       `${KESY_URL}/wallet/add`,
-      { wallet },
+      { walletAddress: wallet.walletAddress, network: wallet.network },
       { headers: { Authorization: `Bearer ${user.accessToken}` } }
     );
     if (response.status !== 200) {
