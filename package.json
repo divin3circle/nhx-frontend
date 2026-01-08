@@ -47,11 +47,7 @@
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
-<<<<<<< HEAD
-    "next": "16.0.10",
-=======
     "next": "15.5.9",
->>>>>>> 4f959fc (build: adjust package.json build config and lockfile from detached HEAD fix:wallet body)
     "next-themes": "^0.4.6",
     "react": "19.2.1",
     "react-day-picker": "^9.11.1",
