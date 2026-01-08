@@ -256,7 +256,7 @@ export default function Page() {
               </button>
             </div>
           ) : (
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4 flex-wrap">
               {data.map((wallet) => (
                 <WalletCard key={wallet.walletId} wallet={wallet} />
               ))}
