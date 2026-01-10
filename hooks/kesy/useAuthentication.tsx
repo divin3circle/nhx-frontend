@@ -23,6 +23,10 @@ export interface OTPParams {
   otp: string;
 }
 
+interface ErrorResponse {
+  message: string;
+}
+
 function isTokenExpired(expiresAt: number): boolean {
   return Date.now() >= expiresAt;
 }
@@ -128,10 +132,9 @@ export const useLogin = () => {
       toast.success("Login successful. Welcome back to KESY!");
       login(data);
     },
-    onError: (error: AxiosError) => {
-      const errorResponse = error.response?.data as LoginErrorResponse;
+    onError: (error: AxiosError<ErrorResponse>) => {
       toast.error("Login failed.", {
-        description: errorResponse.error.message,
+        description: error.response?.data.message,
       });
       console.error(error);
     },
@@ -149,9 +152,9 @@ export const useRegister = () => {
       });
       router.push("/kesy/otp");
     },
-    onError: (error) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       toast.error("Registration failed.", {
-        description: error.message,
+        description: error.response?.data.message,
       });
       console.error(error);
     },
@@ -170,9 +173,9 @@ export const useVerifyOTP = () => {
       router.push("/kesy/details");
       login(data);
     },
-    onError: (error) => {
-      toast.error("OTP verification failed. Try again later.", {
-        description: error.message,
+    onError: (error: AxiosError<ErrorResponse>) => {
+      toast.error("OTP verification failed.", {
+        description: error.response?.data.message,
       });
       console.error(error);
     },
@@ -191,9 +194,9 @@ export const useSubmitUserDetails = () => {
       login(data);
       router.push("/kesy/login");
     },
-    onError: (error) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       toast.error("Failed to submit user details. Try again later.", {
-        description: error.message,
+        description: error.response?.data.message,
       });
       console.error(error);
     },
