@@ -11,7 +11,7 @@ import {
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { DetailsFormData } from "@/components/details-form";
-import { LoginErrorResponse } from "../use-login";
+import { useLogAdminAction } from "./useAnalytics";
 
 export interface AuthParams {
   email: string;
@@ -120,11 +120,16 @@ async function submitUserDetails(data: DetailsFormData): Promise<AuthResponse> {
 export const useLogin = () => {
   const router = useRouter();
   const { login } = useKESYAuth();
+  const logAdminAction = useLogAdminAction();
   return useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
       const isAdmin = data.role.toLowerCase() === "admin";
       if (isAdmin) {
+        const time = new Date().toISOString();
+        logAdminAction.mutate({
+          message: `Admin log in at ${time}`,
+        });
         router.push("/kesy/admin/dashboard");
       } else {
         router.push("/kesy/dashboard");

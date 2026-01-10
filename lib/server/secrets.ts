@@ -11,7 +11,7 @@ export async function getSecret(secretId: string): Promise<string> {
     return secretCache.get(cacheKey)!;
   }
 
-  const projectId = process.env.GCP_PROJECT_ID;
+  const projectId = process.env.GCP_PROJECT_ID || "nhx-finance";
   if (!projectId) {
     throw new Error("GCP_PROJECT_ID is not set");
   }
