@@ -37,7 +37,8 @@ export const DECIMALS = 6;
 export const USD_KESY_RATIO = 129;
 
 export function formatNumberValue(value: string): string {
-  const num = parseFloat(value);
+  let num = parseFloat(value);
+  num = num / 1e5;
 
   if (isNaN(num)) {
     return value;

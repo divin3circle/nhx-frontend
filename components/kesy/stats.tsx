@@ -1,8 +1,12 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "../ui/sparkles";
+import { useTokenDetails } from "@/hooks/kesy/useAnalytics";
+import { formatUSDAmount, formatAmount } from "@/app/kesy/associate/page";
 
 export function StatsCard() {
+  const { data: tokenDetails, isLoading: isTokenDetailsLoading } =
+    useTokenDetails();
   return (
     <div className="h-[35rem] w-full bg-black border border-background/20 flex flex-col justify-between items-center overflow-hidden rounded-4xl">
       <div className="w-full flex flex-col items-center justify-center my-8">
@@ -17,8 +21,13 @@ export function StatsCard() {
       <div>
         <div className="w-full flex flex-col items-center justify-between md:flex-row mb-1 gap-4">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-medieval-sharp font-bold text-center text-white relative z-20">
-              1,8M+
+            <h1 className="text-2xl font-medieval-sharp font-bold text-center text-white relative z-20">
+              $
+              {tokenDetails && tokenDetails.totalSupply ? (
+                formatUSDAmount(tokenDetails.totalSupply)
+              ) : (
+                <p>***********</p>
+              )}{" "}
             </h1>
             <p className="text-sm text-center md:px-2 font-funnel-display text-muted-foreground leading-relaxed md:mt-2">
               KESY Minted
@@ -26,18 +35,23 @@ export function StatsCard() {
           </div>
           <div className="flex flex-col items-center justify-center">
             <h1 className="text-4xl font-medieval-sharp font-bold text-center text-white relative z-20">
-              KES 600M+
+              $0.00
             </h1>
             <p className="text-sm text-center md:px-2 font-funnel-display text-muted-foreground leading-relaxed md:mt-2">
-              Total Value Locked($600K+)
+              Yield Distributed
             </p>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-medieval-sharp font-bold text-center text-white relative z-20">
-              121K+
+            <h1 className="text-2xl font-medieval-sharp font-bold text-center text-white relative z-20">
+              $
+              {tokenDetails && tokenDetails.reserveAmount ? (
+                formatUSDAmount(Number(tokenDetails.reserveAmount) / 1e5 + "")
+              ) : (
+                <p>***</p>
+              )}{" "}
             </h1>
-            <p className="text-s text-center md:px-2 font-funnel-display text-muted-foreground leading-relaxed md:mt-2">
-              Total Holders
+            <p className="text-sm text-center md:px-2 font-funnel-display text-muted-foreground leading-relaxed md:mt-2">
+              Reserve Backing
             </p>
           </div>
         </div>

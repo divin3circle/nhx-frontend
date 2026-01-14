@@ -39,7 +39,7 @@ function KesyPage() {
           <div className="w-full flex items-center justify-center h-full">
             <div className="w-full md:max-w-3xl flex items-center flex-col justify-center">
               <h1 className="text-4xl text-center xl:text-left xl:text-6xl font-funnel-display font-bold text-[#F5F5F5]">
-                The Future of Business is <ColourfulText text="Global" />
+                The Kenyan Shilling Goes Global with KESY
               </h1>
               <p className="text-gray-300 text-xl font-funnel-display text-balance mt-4 text-center xl:text-left">
                 With our stablecoin infrastructure, your business doesn’t need
@@ -130,8 +130,8 @@ function KesyPage() {
                 />
               </div>
               <p className="text-sm font-funnel-display text-muted-foreground leading-relaxed mt-2">
-                KESY tokens are pioneering yield-bearing stablecoins in the
-                Kenyan market, offering holders a unique investment opportunity.
+                KESY is a pioneering yield-bearing stablecoin in the Kenyan
+                market, offering transactional and investment utilities.
               </p>
               <div className="w-full flex items-center justify-between gap-2">
                 <Button
@@ -271,12 +271,11 @@ function KesyPage() {
               </div>
               <div className="">
                 <h1 className="text-lg font-funnel-display font-bold max-w-3xl">
-                  Stake & Redeem KESY
+                  Withdraw KES
                 </h1>
                 <p className="text-sm font-funnel-display leading-relaxed">
-                  Stake KESY tokens to earn yield from Kenyan Treasury
-                  Securities. Or redeem KESY tokens for KES straight to your
-                  bank account.
+                  Burn your KESY tokens to withdraw KES back to your bank with
+                  the proceeds from the Treasury Securities.
                 </p>
               </div>
             </div>

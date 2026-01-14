@@ -20,7 +20,7 @@ import { useTokenDetails } from "@/hooks/kesy/useAnalytics";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useContracts } from "@/hooks/kesy/useContracts";
 
-function formatAmount(amount: string): string {
+export function formatAmount(amount: string): string {
   const amountNumber = Number(amount);
   return amountNumber.toLocaleString(undefined, {
     minimumFractionDigits: 2,
@@ -28,7 +28,7 @@ function formatAmount(amount: string): string {
   });
 }
 
-function formatUSDAmount(amount: string): string {
+export function formatUSDAmount(amount: string): string {
   const amountNumber = Number(amount) / USD_KESY_RATIO;
   return amountNumber.toLocaleString(undefined, {
     minimumFractionDigits: 2,
@@ -188,7 +188,7 @@ function AssociatePage() {
               KESY
               <span className="text-xs text-muted-foreground font-funnel-display">
                 {tokenDetails && tokenDetails.reserveAmount ? (
-                  formatUSDAmount(tokenDetails.reserveAmount)
+                  formatUSDAmount(Number(tokenDetails.reserveAmount) / 1e5 + "")
                 ) : (
                   <p>***********</p>
                 )}{" "}

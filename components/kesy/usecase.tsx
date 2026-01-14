@@ -28,9 +28,10 @@ function UseCase() {
             </h1>
           </div>
           <p className="text-sm font-funnel-display text-gray-300 leading-relaxed">
-            Institutions or high-net-worth individuals minting ≥10,000 KESY on
-            our platform earn a stable yield from Kenyan Treasury Securities,
-            tailored to those seeking passive income in a regulated environment.
+            Institutions or high-net-worth individuals minting ≥1,000,000 KESY
+            on our platform earn a percentage of the stable yield from Kenyan
+            Treasury Securities, tailored to those seeking passive income in a
+            regulated environment.
           </p>
           <div className="w-full">
             <Button
@@ -96,7 +97,7 @@ function UseCase() {
               variant="outline"
               className="rounded-3xl bg-background border border-foreground/20 text-foreground shadow-none text-sm w-full font-funnel-display"
               onClick={() => {
-                window.open("orion.com", "_blank");
+                window.open("https://orionramp.com", "_blank");
               }}
             >
               Buy KESY
