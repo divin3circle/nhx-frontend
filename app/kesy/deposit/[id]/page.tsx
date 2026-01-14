@@ -19,6 +19,7 @@ export default function DepositDetailsPage() {
   const { data: bankDetails, isLoading, error, isError } = useBankDetails();
 
   if (!bankDetails || isError) {
+    toast.error(error?.message || "Failed to load bank details");
     return (
       <div className="grid min-h-svh lg:grid-cols-2 font-noto-sans">
         <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -55,8 +56,8 @@ export default function DepositDetailsPage() {
               </div>
             </div>
             <div className="bg-foreground/5 border border-foreground/20 rounded-3xl py-2 mt-4 w-full max-w-md">
-              <p className="text-sm text-red-500 text-center">
-                Error loading bank details. {error?.message}
+              <p className="text-sm font-funnel-display mx-4 my-8 text-center text-muted-foreground">
+                Just a moment, this is taking longer than expected.
               </p>
             </div>
             <div className="mt-4">

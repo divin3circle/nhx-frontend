@@ -51,7 +51,10 @@ function TokenBalance() {
           </div>
         </div>
         <div className="flex items-center justify-end w-full gap-2 flex-col md:flex-row mt-8">
-          <Button className="bg-foreground font-funnel-display hover:bg-foreground/80 ease-in transition-all rounded-3xl duration-300 w-full md:w-1/2 md:py-1 backdrop-blur-sm hover:backdrop-blur-none cursor-pointer">
+          <Button
+            onClick={() => router.push("/kesy/withdraw")}
+            className="bg-foreground font-funnel-display hover:bg-foreground/80 ease-in transition-all rounded-3xl duration-300 w-full md:w-1/2 md:py-1 backdrop-blur-sm hover:backdrop-blur-none cursor-pointer"
+          >
             Withdraw
             <ArrowDownIcon className="w-4 h-4 text-muted-foreground" />
           </Button>
