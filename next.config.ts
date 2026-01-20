@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: "/",
+        has: [{ type: "host", value: "admin.nhx.finance" }],
+        destination: "/kesy/admin",
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "admin.nhx.finance" }],
         destination: "/kesy/admin/:path*",
