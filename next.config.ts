@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "admin.nhx.finance" }],
+        destination: "/kesy/admin/:path*",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
